@@ -1,17 +1,21 @@
 // Import our custom CSS
 import '../sass/main.scss';
 import * as bootstrap from 'bootstrap';
-
+import './utils/firebase';
 //import component
 import './components/index';
 // Import javascript file as needed
 import Dashboard from './pages/dashboard';
 import Add from './pages/transactions/add';
 import Edit from './pages/transactions/edit';
+import Login from './pages/auth/login';
+import Register from './pages/auth/register';
 const routes = {
   '/': Dashboard,
   '/transactions/add.html': Add,
   '/transactions/edit.html': Edit,
+  '/auth/login.html': Login,
+  '/auth/register.html': Register,
 };
 
 const detectRoute = () => routes[window.location.pathname];

@@ -6,3 +6,4 @@ import './NavLinkAuth';
 import './FooterApp'
 
 import './ModalTransaction'
+import './form/InputWithValidation'

@@ -27,20 +27,25 @@ const Login = {
 
   async _getLogged() {
     const formData = this._getFormData();
-
+  
     if (this._validateFormData({ ...formData })) {
       console.log('formData');
       console.log(formData);
-
+  
       try {
         const response = await Auth.login({
           email: formData.email,
           password: formData.password,
         });
-        Utils.setUserToken(Config.USER_TOKEN_KEY, response.data.results.token);
-        window.alert('Signed user in detected');
-
-        this._goToDashboardPage();
+  
+        if (response.data.error === false) {
+          Utils.setUserToken(Config.USER_TOKEN_KEY, response.data.loginResult.token);
+          window.alert('Signed user in detected');
+  
+          this._goToDashboardPage();
+        } else {
+          console.error(response.data.message);
+        }
       } catch (error) {
         console.error(error);
       }
