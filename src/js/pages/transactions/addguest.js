@@ -1,9 +1,7 @@
-import CheckUserAuth from "../auth/check-user-auth";
-import Story from "../../network/story";
+import axios from 'axios';
 
-const Add = {
+const AddGuest = {
   async init() {
-    CheckUserAuth.checkLoginState();
     this._initialListener();
   },
 
@@ -36,7 +34,7 @@ const Add = {
         data.append('description', formData.description);
         data.append('photo', formData.photo);
 
-        const response = await Story.store(formData);
+        const response = await axios.post('https://story-api.dicoding.dev/v1/stories/guest', data);
 
         if (response.status >= 200 && response.status < 300) {
           const successAlert = document.createElement('div');
@@ -48,7 +46,7 @@ const Add = {
           const form = document.querySelector('#addRecordForm');
           form.insertAdjacentElement('afterend', successAlert);
           // alert('Data has been posted successfully');
-          // console.log('Data has been posted for axios');
+          console.log('Data has been posted for axios');
         } else {
           alert('Data has been not posted successfully');
           throw new Error('Network response was not ok');
@@ -72,6 +70,7 @@ const Add = {
       photo: photo,
     };
   },
+
 
   _updatePhotoPreview() {
     const evidenceImgChange = document.querySelector('#validationCustomEvidenceImgChange');
@@ -100,4 +99,4 @@ const Add = {
   },
 };
 
-export default Add;
+export default AddGuest;

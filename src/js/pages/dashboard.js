@@ -1,19 +1,28 @@
+import CheckUserAuth from "./auth/check-user-auth";
+import Story from "../network/story";
 const Dashboard = {
   async init() {
+    CheckUserAuth.checkLoginState();
     await this._initialData();
     this._initialListener();
   },
 
   async _initialData() {
-    const fetchRecords = await fetch('/data/DATA.json')
-    const responseRecords = await fetchRecords.json();
-
+    const fetchRecords = await Story.getAll();
+    const responseRecords = fetchRecords.data.listStory;
+  
     console.log(responseRecords);
-
-    this._userListStory = responseRecords.listStory;
+  
+    // Periksa jika responseRecords adalah array sebelum menggunakannya
+    if (!Array.isArray(responseRecords)) {
+      throw new Error('ResponseRecords should be an array');
+    }
+  
+    this._userListStory = responseRecords;
     this._populateListRecordToTable(this._userListStory);
     this._populateListDataToCard(this._userListStory);
   },
+  
 
   _initialListener() {
     const recordDetailModal = document.getElementById('recordDetailModal');

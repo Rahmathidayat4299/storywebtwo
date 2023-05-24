@@ -88,6 +88,12 @@ module.exports = {
       ...htmlWebpackPluginConfig,
     }),
     new HtmlWebpackPlugin({
+      title: 'Add Guest',
+      filename: 'transactions/addguest.html',
+      template: path.resolve(__dirname, 'src/views/transactions/addguest.html'),
+      ...htmlWebpackPluginConfig,
+    }),
+    new HtmlWebpackPlugin({
       title: 'Edit Records',
       filename: 'transactions/edit.html',
       template: path.resolve(__dirname, 'src/views/transactions/edit.html'),

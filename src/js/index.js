@@ -10,9 +10,12 @@ import Add from './pages/transactions/add';
 import Edit from './pages/transactions/edit';
 import Login from './pages/auth/login';
 import Register from './pages/auth/register';
+import AddGuest from './pages/transactions/addguest';
 const routes = {
   '/': Dashboard,
   '/transactions/add.html': Add,
+  '/transactions/addguest.html': AddGuest,
+
   '/transactions/edit.html': Edit,
   '/auth/login.html': Login,
   '/auth/register.html': Register,

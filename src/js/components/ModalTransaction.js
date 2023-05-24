@@ -26,27 +26,13 @@ class ModalTransaction extends LitWithoutShadowDom {
             <table>
               <tbody>
                 <tr>
-                  <td class="fw-bold">Tipe</td>
-                  <td class="fw-bold ms-3 me-1 d-inline-block">:</td>
-                  <td id="typeDetailRecord"></td>
-                </tr>
-                <tr>
                   <td class="fw-bold">Nama</td>
                   <td class="fw-bold ms-3 me-1 d-inline-block">:</td>
                   <td id="nameDetailRecord"></td>
                 </tr>
+             
                 <tr>
-                  <td class="fw-bold">Tanggal</td>
-                  <td class="fw-bold ms-3 me-1 d-inline-block">:</td>
-                  <td id="dateDetailRecord"></td>
-                </tr>
-                <tr>
-                  <td class="fw-bold">Jumlah Uang</td>
-                  <td class="fw-bold ms-3 me-1 d-inline-block">:</td>
-                  <td id="amountDetailRecord"></td>
-                </tr>
-                <tr>
-                  <td class="fw-bold">Catatan</td>
+                  <td class="fw-bold">Deskripsi</td>
                   <td class="fw-bold ms-3 me-1 d-inline-block">:</td>
                   <td id="noteDetailRecord"></td>
                 </tr>
